@@ -1,7 +1,9 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '@/styles/globals.css';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import "@/styles/globals.css";
+
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { Inter } from "next/font/google";
+import MainProvider from "@/providers/MainProvider";
+import type { Metadata } from "next";
 
 // const geistSans = Geist({
 //   variable: '--font-geist-sans',
@@ -14,16 +16,16 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 // });
 
 export const metadata: Metadata = {
-  title: 'My english courses',
-  description: 'My english courses for everyone who want to learn english',
+  title: "My english courses",
+  description: "My english courses for everyone who want to learn english",
   icons: {
-    icon: '/images/favicon.ico', // /public path
+    icon: "/images/favicon.ico", // /public path
   },
 };
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
+  subsets: ["latin"],
+  display: "swap",
   adjustFontFallback: false,
 });
 
@@ -33,11 +35,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body
         className={`${inter.className} h-full flex flex-col justify-between`}
       >
-        <AntdRegistry>{children}</AntdRegistry>
+        <MainProvider>
+          <AntdRegistry>{children}</AntdRegistry>
+        </MainProvider>
       </body>
     </html>
   );

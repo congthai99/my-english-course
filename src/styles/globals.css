@@ -4,6 +4,7 @@
 
 :root {
   --foreground: #171717;
+  --background: #fff;
 }
 
 *,
@@ -24,5 +25,5 @@
 
 body {
   color: var(--foreground);
-  /* background: var(--background); */
+  background: var(--background);
 }
